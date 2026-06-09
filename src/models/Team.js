@@ -13,10 +13,10 @@ const teamSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    entrenador: {
-        type: String,
-        required: true
-    }
+   capitan: {
+    type: String,
+    required: true
+}
 });
 
 module.exports = mongoose.model('Team', teamSchema);

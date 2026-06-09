@@ -23,9 +23,20 @@ Content-Type: application/json
 
 {
   "nombre": "Los Pibes FC",
-  "ciudad": "Montevideo",
-  "categoria": "Libre",
-  "entrenador": "Juan Perez"
+  "ciudad": "Buenos Aires",
+  "categoria": "Futbol 5",
+  "capitan": "Carlos Gomez"
+}
+
+### Crear segundo equipo
+POST http://localhost:3000/api/teams
+Content-Type: application/json
+
+{
+  "nombre": "Deportivo Oeste",
+  "ciudad": "Buenos Aires",
+  "categoria": "Futbol 5",
+  "capitan": "Martin Lopez"
 }
 
 ### Obtener todos los equipos
@@ -34,7 +45,6 @@ GET http://localhost:3000/api/teams
 ### Obtener equipo por id
 GET http://localhost:3000/api/teams/6a2759cefeb253c232bcf719
 
-
 ### Actualizar equipo
 PUT http://localhost:3000/api/teams/6a2759cefeb253c232bcf719
 Content-Type: application/json
@@ -42,6 +52,36 @@ Content-Type: application/json
 {
   "nombre": "Los Pibes FC",
   "ciudad": "Buenos Aires",
-  "categoria": "Libre",
-  "entrenador": "Carlos Gomez"
+  "categoria": "Futbol 5",
+  "capitan": "Carlos Gomez"
 }
+
+### Crear jugador
+POST http://localhost:3000/api/players
+Content-Type: application/json
+
+{
+  "nombre": "Facundo Perez",
+  "edad": 22,
+  "posicion": "Delantero",
+  "numero": 9,
+  "teamId": "6a2759cefeb253c232bcf719"
+}
+
+### Obtener jugadores
+GET http://localhost:3000/api/players
+
+### Crear partido
+POST http://localhost:3000/api/matches
+Content-Type: application/json
+
+{
+  "localTeamId": "6a276899a47ce63c0ba2e57e",
+  "awayTeamId": "6a2768a2a47ce63c0ba2e57f",
+  "golesLocal": 4,
+  "golesVisitante": 2,
+  "fecha": "2026-06-15"
+}
+
+### Obtener partidos
+GET http://localhost:3000/api/matches
