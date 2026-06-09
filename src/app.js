@@ -3,11 +3,13 @@ const app = express();
 
 const authRoutes = require('./routes/auth.routes');
 const teamRoutes = require('./routes/team.routes');
+const playerRoutes = require('./routes/player.routes');
 
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/teams', teamRoutes);
+app.use('/api/players', playerRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).json({ message: "API DataGol corriendo correctamente" });

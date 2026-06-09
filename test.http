@@ -27,3 +27,21 @@ Content-Type: application/json
   "categoria": "Libre",
   "entrenador": "Juan Perez"
 }
+
+### Obtener todos los equipos
+GET http://localhost:3000/api/teams
+
+### Obtener equipo por id
+GET http://localhost:3000/api/teams/6a2759cefeb253c232bcf719
+
+
+### Actualizar equipo
+PUT http://localhost:3000/api/teams/6a2759cefeb253c232bcf719
+Content-Type: application/json
+
+{
+  "nombre": "Los Pibes FC",
+  "ciudad": "Buenos Aires",
+  "categoria": "Libre",
+  "entrenador": "Carlos Gomez"
+}
