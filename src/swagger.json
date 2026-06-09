@@ -1,0 +1,328 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "DataGol API",
+    "version": "1.0.0",
+    "description": "Documentación oficial de la API de DataGol"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor Local"
+    },
+    {
+      "url": "https://datagol-pexq.onrender.com",
+      "description": "Servidor Producción (Render)"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/auth/register": {
+      "post": {
+        "summary": "Registrar un nuevo usuario",
+        "tags": ["Autenticación"],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Usuario creado" },
+          "400": { "description": "Error en los datos" }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Iniciar sesión",
+        "tags": ["Autenticación"],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login exitoso" },
+          "401": { "description": "Credenciales inválidas" }
+        }
+      }
+    },
+    "/api/teams": {
+      "get": {
+        "summary": "Obtener todos los equipos",
+        "tags": ["Equipos"],
+        "responses": {
+          "200": { "description": "Lista de equipos obtenida" }
+        }
+      },
+      "post": {
+        "summary": "Crear un equipo",
+        "tags": ["Equipos"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "ciudad": { "type": "string" },
+                  "categoria": { "type": "string" },
+                  "capitan": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Equipo creado" }
+        }
+      }
+    },
+    "/api/teams/{id}": {
+      "get": {
+        "summary": "Obtener un equipo por ID",
+        "tags": ["Equipos"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Equipo encontrado" }
+        }
+      },
+      "put": {
+        "summary": "Actualizar un equipo",
+        "tags": ["Equipos"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "ciudad": { "type": "string" },
+                  "categoria": { "type": "string" },
+                  "capitan": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Equipo actualizado" }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar un equipo",
+        "tags": ["Equipos"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Equipo eliminado" }
+        }
+      }
+    },
+    "/api/players": {
+      "get": {
+        "summary": "Obtener todos los jugadores",
+        "tags": ["Jugadores"],
+        "responses": {
+          "200": { "description": "Lista de jugadores obtenida" }
+        }
+      },
+      "post": {
+        "summary": "Crear un jugador",
+        "tags": ["Jugadores"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "edad": { "type": "number" },
+                  "posicion": { "type": "string" },
+                  "numero": { "type": "number" },
+                  "teamId": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Jugador creado" }
+        }
+      }
+    },
+    "/api/players/{id}": {
+      "get": {
+        "summary": "Obtener un jugador por ID",
+        "tags": ["Jugadores"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Jugador encontrado" }
+        }
+      },
+      "put": {
+        "summary": "Actualizar un jugador",
+        "tags": ["Jugadores"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "edad": { "type": "number" },
+                  "posicion": { "type": "string" },
+                  "numero": { "type": "number" },
+                  "teamId": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Jugador actualizado" }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar un jugador",
+        "tags": ["Jugadores"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Jugador eliminado" }
+        }
+      }
+    },
+    "/api/matches": {
+      "get": {
+        "summary": "Obtener todos los partidos",
+        "tags": ["Partidos"],
+        "responses": {
+          "200": { "description": "Lista de partidos obtenida" }
+        }
+      },
+      "post": {
+        "summary": "Crear un partido",
+        "tags": ["Partidos"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "localTeamId": { "type": "string" },
+                  "awayTeamId": { "type": "string" },
+                  "golesLocal": { "type": "number" },
+                  "golesVisitante": { "type": "number" },
+                  "fecha": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Partido creado" }
+        }
+      }
+    },
+    "/api/matches/{id}": {
+      "get": {
+        "summary": "Obtener un partido por ID",
+        "tags": ["Partidos"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Partido encontrado" }
+        }
+      },
+      "put": {
+        "summary": "Actualizar un partido",
+        "tags": ["Partidos"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "localTeamId": { "type": "string" },
+                  "awayTeamId": { "type": "string" },
+                  "golesLocal": { "type": "number" },
+                  "golesVisitante": { "type": "number" },
+                  "fecha": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Partido actualizado" }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar un partido",
+        "tags": ["Partidos"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Partido eliminado" }
+        }
+      }
+    }
+  }
+}
