@@ -16,3 +16,14 @@ Content-Type: application/json
   "email": "test@datagol.com",
   "password": "123456"
 }
+
+### Crear equipo
+POST http://localhost:3000/api/teams
+Content-Type: application/json
+
+{
+  "nombre": "Los Pibes FC",
+  "ciudad": "Montevideo",
+  "categoria": "Libre",
+  "entrenador": "Juan Perez"
+}
