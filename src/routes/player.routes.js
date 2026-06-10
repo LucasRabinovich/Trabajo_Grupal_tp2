@@ -1,5 +1,5 @@
-const express = require('express');
-const playerController = require('../controllers/player.controller');
+import express from 'express';
+import playerController from '../controllers/player.controller.js';
 
 const router = express.Router();
 
@@ -9,4 +9,4 @@ router.get('/:id', playerController.findById);
 router.put('/:id', playerController.update);
 router.delete('/:id', playerController.delete);
 
-module.exports = router;
+export default router;

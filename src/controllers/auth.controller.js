@@ -1,6 +1,6 @@
-const userRepository = require('../repositories/user.repository');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import userRepository from '../repositories/user.repository.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const authController = {
     register: async (req, res) => {
@@ -59,4 +59,4 @@ const authController = {
     }
 };
 
-module.exports = authController;
+export default authController;

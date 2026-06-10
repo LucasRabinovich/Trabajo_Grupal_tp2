@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const teamSchema = new mongoose.Schema({
     nombre: {
@@ -13,10 +13,10 @@ const teamSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-   capitan: {
-    type: String,
-    required: true
-}
+    capitan: {
+        type: String,
+        required: true
+    }
 });
 
-module.exports = mongoose.model('Team', teamSchema);
+export default mongoose.model('Team', teamSchema);

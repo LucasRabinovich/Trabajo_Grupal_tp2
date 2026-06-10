@@ -1,4 +1,4 @@
-const Player = require('../models/Player');
+import Player from '../models/Player.js';
 
 const playerRepository = {
     create: async (playerData) => {
@@ -26,4 +26,4 @@ const playerRepository = {
     }
 };
 
-module.exports = playerRepository;
+export default playerRepository;

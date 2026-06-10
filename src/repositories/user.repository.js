@@ -1,4 +1,4 @@
-const User = require('../models/User');
+import User from '../models/User.js';
 
 const userRepository = {
     findByEmail: async (email) => {
@@ -12,4 +12,4 @@ const userRepository = {
     }
 };
 
-module.exports = userRepository;
+export default userRepository;

@@ -1,4 +1,4 @@
-const teamRepository = require('../repositories/team.repository');
+import teamRepository from '../repositories/team.repository.js';
 
 const teamController = {
     create: async (req, res) => {
@@ -116,4 +116,4 @@ const teamController = {
     }
 };
 
-module.exports = teamController;
+export default teamController;

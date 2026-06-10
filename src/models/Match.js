@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const matchSchema = new mongoose.Schema({
     localTeamId: {
@@ -25,4 +25,4 @@ const matchSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Match', matchSchema);
+export default mongoose.model('Match', matchSchema);

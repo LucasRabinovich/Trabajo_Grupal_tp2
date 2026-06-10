@@ -1,4 +1,4 @@
-const Team = require('../models/Team');
+import Team from '../models/Team.js';
 
 const teamRepository = {
     create: async (teamData) => {
@@ -26,4 +26,4 @@ const teamRepository = {
     }
 };
 
-module.exports = teamRepository;
+export default teamRepository;

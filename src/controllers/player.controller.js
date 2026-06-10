@@ -1,4 +1,4 @@
-const playerRepository = require('../repositories/player.repository');
+import playerRepository from '../repositories/player.repository.js';
 
 const playerController = {
     create: async (req, res) => {
@@ -127,4 +127,4 @@ const playerController = {
     }
 };
 
-module.exports = playerController;
+export default playerController;

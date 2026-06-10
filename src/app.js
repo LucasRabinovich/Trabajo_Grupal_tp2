@@ -1,11 +1,14 @@
-const express = require('express');
-const app = express();
-const swaggerUi = require('swagger-ui-express');
+import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const swaggerDocument = require('./swagger.json');
-const authRoutes = require('./routes/auth.routes');
-const teamRoutes = require('./routes/team.routes');
-const playerRoutes = require('./routes/player.routes');
-const matchRoutes = require('./routes/match.routes');
+import authRoutes from './routes/auth.routes.js';
+import teamRoutes from './routes/team.routes.js';
+import playerRoutes from './routes/player.routes.js';
+import matchRoutes from './routes/match.routes.js';
+
+const app = express();
 
 app.use(express.json());
 
@@ -16,7 +19,7 @@ app.use('/api/matches', matchRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', (req, res) => {
-    res.status(200).json({ message: "API DataGol corriendo correctamente" });
+    return res.status(200).json({ message: "API DataGol corriendo correctamente" });
 });
 
-module.exports = app;
+export default app;

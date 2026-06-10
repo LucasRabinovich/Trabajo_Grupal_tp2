@@ -1,4 +1,4 @@
-const Match = require('../models/Match');
+import Match from '../models/Match.js';
 
 const matchRepository = {
     create: async (matchData) => {
@@ -30,4 +30,4 @@ const matchRepository = {
     }
 };
 
-module.exports = matchRepository;
+export default matchRepository;

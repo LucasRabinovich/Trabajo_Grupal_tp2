@@ -2,7 +2,7 @@
 
 ## Descripción
 
-DataGol es una API REST desarrollada para la gestión de torneos de fútbol amateur. Permite administrar equipos, jugadores y partidos, además de gestionar usuarios autenticados mediante JSON Web Tokens (JWT).
+DataGol es una API REST desarrollada para creacion de equipos ammateur de fútbol. Permite administrar equipos, jugadores y partidos, además de gestionar usuarios autenticados mediante JSON Web Tokens (JWT).
 
 El sistema fue desarrollado utilizando Node.js, Express y MongoDB Atlas, siguiendo una arquitectura multicapa (N-Tier) para garantizar la correcta separación de responsabilidades.
 

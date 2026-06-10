@@ -1,5 +1,5 @@
-const express = require('express');
-const matchController = require('../controllers/match.controller');
+import express from 'express';
+import matchController from '../controllers/match.controller.js';
 
 const router = express.Router();
 
@@ -9,4 +9,4 @@ router.get('/:id', matchController.findById);
 router.put('/:id', matchController.update);
 router.delete('/:id', matchController.delete);
 
-module.exports = router;
+export default router;

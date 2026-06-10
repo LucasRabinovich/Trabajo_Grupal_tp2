@@ -1,4 +1,4 @@
-const matchRepository = require('../repositories/match.repository');
+import matchRepository from '../repositories/match.repository.js';
 
 const matchController = {
     create: async (req, res) => {
@@ -121,4 +121,4 @@ const matchController = {
     }
 };
 
-module.exports = matchController;
+export default matchController;
